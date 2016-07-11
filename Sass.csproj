@@ -49,6 +49,10 @@
   <ItemGroup>
     <Compile Include="Bot.cs" />
     <Compile Include="Config.cs" />
+    <Compile Include="IModule.cs" />
+    <Compile Include="ModuleManager.cs" />
+    <Compile Include="Modules\Hi.cs" />
+    <Compile Include="Modules\PingPong.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

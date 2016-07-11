@@ -37,7 +37,9 @@ namespace Sass
 			} );
 
 			// Set event handlers.
-			m_client.MessageReceived += OnMessage;
+			var modMan = new ModuleManager ( m_client );
+			modMan.AddModule<Modules.PingPong> ();
+			modMan.AddModule<Modules.Hi> ();
 
 			m_client.ExecuteAndWait ( async () =>
 			{
@@ -53,20 +55,6 @@ namespace Sass
 			{
 				Console.WriteLine ( "Something done goofed" );
 				Console.WriteLine ( e.Exception );
-			}
-		}
-
-		private void OnMessage ( object sender, MessageEventArgs e )
-		{
-			// Ignore our own messages.
-			if ( e.User.Id == e.Server.CurrentUser.Id )
-			{
-				return;
-			}
-
-			if ( e.Message.RawText == "ping" )
-			{
-				e.Channel.SendMessage ( "pong" );
 			}
 		}
 
